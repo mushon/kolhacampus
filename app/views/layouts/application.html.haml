@@ -1,0 +1,70 @@
+!!! 5
+%html
+  %head
+    %title Kolhacampus
+    = stylesheet_link_tag    "application", :media => "all"
+    = csrf_meta_tags
+
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} שם הפרויקט
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} בית
+              %li
+                %a{:href => "#about"} אודות
+              %li
+                %a{:href => "#contact"} צרו קשר
+            %p.navbar-text.pull-right
+              מחובר כ
+              %a{:href => "#"} שם-משתמש
+          / /.nav-collapse
+    .container-fluid
+      .row-fluid
+        .span3
+          .well.sidebar-nav
+            %ul.nav.nav-list
+              %li.nav-header תפריט צד
+              %li.active
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li.nav-header תפריט צד
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li.nav-header תפריט צד
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+              %li
+                %a{:href => "#"} קישור
+          / /.well
+        / /span
+        = yield
+      %hr
+      %footer
+        %p &copy; החברה 2012
+    / /.fluid-container
+  = javascript_include_tag "application"
