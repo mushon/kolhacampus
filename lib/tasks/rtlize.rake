@@ -24,11 +24,11 @@ def rtl_convert(css)
   ltr_matches = css.scan /^([\n\s]*[^:\n\t\s\.\#\{\}]*(left|right)[^:]*:)|(:[^\w\.\#\{\}]*[^;\.\#\{\}]*(left|right)[^;]*;)/
   css_to_replace = ltr_matches.flatten.delete_if{|a| a.nil? || ['left','right'].include?(a) }
   css_to_replace.each do |match|
-    next if match.include? 'right'
+    next if match.include? 'right' or match =~ /(left|right)\s(top|bottom|\d+[\w%]+)/
     css.gsub! match, (match.gsub 'left', place_holder)
   end
   css_to_replace.each do |match|
-    next if match.include? 'left'
+    next if match.include? 'left' or match =~ /(left|right)\s(top|bottom|\d+[\w%]+)/
     css.gsub! match, (match.gsub 'right', 'left')
   end
   css.gsub! place_holder, 'right'
