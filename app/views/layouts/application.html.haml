@@ -2,69 +2,35 @@
 %html
   %head
     %title Kolhacampus
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "#"} שם הפרויקט
-          .nav-collapse
-            %ul.nav
-              %li.active
-                %a{:href => "#"} בית
-              %li
-                %a{:href => "#about"} אודות
-              %li
-                %a{:href => "#contact"} צרו קשר
-            %p.navbar-text.pull-right
-              מחובר כ
-              %a{:href => "#"} שם-משתמש
-          / /.nav-collapse
-    .container-fluid
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header תפריט צד
-              %li.active
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li.nav-header תפריט צד
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li.nav-header תפריט צד
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-              %li
-                %a{:href => "#"} קישור
-          / /.well
-        / /span
-        = yield
-      %hr
-      %footer
-        %p &copy; החברה 2012
-    / /.fluid-container
-  = javascript_include_tag "application"
+    %header#site-header
+      %nav#site-nav
+        %ul#nav-menu.semantic
+          %li#radio-menu.menu-item
+            %strong.menu-label= t(:radio)
+            %ul.sub-menu.semantic
+              %li.sub-menu-item
+                = t(:schedule)
+                /
+                  %article.menu-item-content &nbsp;
+              %li.sub-menu-item
+                = t(:podcast_library)
+              %li.sub-menu-item
+                = '%s %s%s' % [t(:video),t(:and),t(:images)]
+              %li.sub-menu-item
+                = '%s %s%s' % [t(:soon),t(:in),t(:radio)]
+              %li.sub-menu-item
+                = t(:most_listened)
+          %li#blog-menu.menu-item
+            %strong.menu-label= t(:blog)
+          %li#neighbourhood-menu.menu-item
+            %strong.menu-label= t(:neighbourhood)
+          %li#search-menu.menu-item
+            %strong.menu-label= t(:search)
+
+
+
+    = javascript_include_tag "application"
