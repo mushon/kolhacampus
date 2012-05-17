@@ -12,23 +12,22 @@
           %li#radio-menu.menu-item
             %strong.menu-label= t(:radio)
             %ul.sub-menu.semantic
+              %li.sub-menu-item.expand
+                %a= t(:schedule)
+                %article.menu-item-content &nbsp;
               %li.sub-menu-item
-                = t(:schedule)
-                /
-                  %article.menu-item-content &nbsp;
+                %a= t(:podcast_library)
               %li.sub-menu-item
-                = t(:podcast_library)
+                %a= '%s %s%s' % [t(:video),t(:and),t(:images)]
               %li.sub-menu-item
-                = '%s %s%s' % [t(:video),t(:and),t(:images)]
+                %a= '%s %s%s' % [t(:soon),t(:in),t(:radio)]
               %li.sub-menu-item
-                = '%s %s%s' % [t(:soon),t(:in),t(:radio)]
-              %li.sub-menu-item
-                = t(:most_listened)
+                %a= t(:most_listened)
           %li#blog-menu.menu-item
             %strong.menu-label= t(:blog)
           %li#neighbourhood-menu.menu-item
             %strong.menu-label= t(:neighbourhood)
-          %li#search-menu.menu-item
+          %li#search-menu
             %strong.menu-label= t(:search)
 
 

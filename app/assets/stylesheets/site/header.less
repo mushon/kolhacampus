@@ -13,10 +13,15 @@
   border-right: 1px solid @red;
 }
 
-.menu-item{
+.menu-item,
+#search-menu{
   position: relative;
   float: right;
   border-left: 1px solid @red;
+}
+
+.menu-item:hover{
+  background-color: @red;
 }
 
 .menu-label{
@@ -25,7 +30,26 @@
   font-size: 32px;
   font-weight: normal;
   padding-right: 10px;
+  display: block;
   position: relative;
+}
+
+.menu-label:after{
+  content: '';
+  display: block;
+  .triangle-down(3px);
+  position: absolute;
+  left:25px;
+  top:25px;
+}
+
+.menu-item:hover .menu-label{
+  color:#000;
+  cursor: pointer;
+}
+
+.menu-item:hover .menu-label:after{
+  .triangle-down(3px, #000);
 }
 
 #radio-menu {
@@ -42,4 +66,107 @@
 
 #search-menu{
   width:79px;
+}
+
+.sub-menu{
+  position: absolute;
+  right:-1px;
+  top:63px;
+  border: 1px solid @greyDarkest;
+  border-top: none;
+  width:100%;
+  background-color: lighten(@greyBackground,2%);
+  .box-shadow(0 0 20px rgba(0,0,0,0.5));
+  display: none;
+}
+
+.menu-item:hover .sub-menu{
+  display: block;
+}
+
+.sub-menu-item {
+  height:59px;
+  line-height: 58px;
+  font-size: 26px;
+  color: @greyLight;
+  margin: 0 9px;
+}
+
+.sub-menu-item a{
+  display: block;
+  color: @greyLight;
+  text-decoration: none;
+  padding-right: 14px;
+  position: relative;
+}
+
+.sub-menu-item + .sub-menu-item {
+  border-top: 1px solid @greyDarker;
+}
+
+.sub-menu-item:hover{
+  padding: 0 9px;
+  margin: 0 -1px -1px -1px;
+  border: 1px solid @red;
+  border-top:none;
+  .box-shadow(0 4px 10px rgba(0,0,0,0.3));
+  cursor: pointer;
+}
+
+.sub-menu-item.expand:hover{
+  border-left-color: lighten(@greyBackground,2%);
+}
+
+.sub-menu-item + .sub-menu-item:hover{
+  border-top: 1px solid @red;
+}
+
+.sub-menu-item:hover + .sub-menu-item{
+  border-top-color: @red;
+}
+
+.sub-menu-item:hover a{
+  color: @red;
+}
+
+.sub-menu-item.expand a:after{
+  content:'';
+  display: block;
+  position: absolute;
+  left:18px;
+  top:50%;
+  margin-top: -3px;
+  .triangle-left(3px);
+}
+
+.sub-menu-item.expand .menu-item-content{
+  position: absolute;
+  top:-1px;
+  min-width: 100px;
+  min-height: 100px;
+  background: lighten(@greyBackground,2%);
+  border:1px solid @red;
+  padding: 10px;
+  .box-shadow(0 5px 20px rgba(0,0,0,0.3));
+  display: none;
+}
+
+.sub-menu-item.expand:hover .menu-item-content{
+  display: block;
+}
+
+#radio-menu .menu-item-content{
+  width:519px;
+  height:384px;
+  right:299px;
+}
+
+#radio-menu .menu-item-content:before{
+  content: '';
+  width:10px;
+  height:59px;
+  position: absolute;
+  top:0;
+  right:-10px;
+  background: lighten(@greyBackground,2%);
 }
